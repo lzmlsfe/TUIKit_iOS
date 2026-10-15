@@ -1,3 +1,4 @@
+#if canImport(TencentCloudAIDeskCustomer)
 import AtomicXCore
 import TencentCloudAIDeskCustomer
 import TUIChatKit
@@ -94,3 +95,4 @@ enum CustomerServiceManager {
         return Locale.current.languageCode ?? "en"
     }
 }
+#endif

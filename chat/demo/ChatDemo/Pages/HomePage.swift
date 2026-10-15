@@ -1,15 +1,21 @@
 import AtomicXCore
 import TUIChatKit
 import Combine
+#if canImport(TUICallKit_Swift)
 import TUICallKit_Swift
+#endif
 import UIKit
 
 final class HomeTabBarController: UITabBarController {
     private static let showCallsTabKey = "show_calls_tab"
 
     static var isCallsTabVisible: Bool {
+#if canImport(TUICallKit_Swift)
         guard UserDefaults.standard.object(forKey: showCallsTabKey) != nil else { return true }
         return UserDefaults.standard.bool(forKey: showCallsTabKey)
+#else
+        return false
+#endif
     }
 
     private let conversationListStore = ConversationListStore.create()
@@ -128,9 +134,11 @@ final class HomeTabBarController: UITabBarController {
 
     private func setupTabs() {
         var tabs: [UIViewController] = [makeChatsTab()]
+#if canImport(TUICallKit_Swift)
         if Self.isCallsTabVisible {
             tabs.append(makeCallsTab())
         }
+#endif
         tabs.append(contentsOf: [makeContactsTab(), makeSettingsTab()])
         viewControllers = tabs
     }
@@ -149,6 +157,7 @@ final class HomeTabBarController: UITabBarController {
         }
     }
 
+#if canImport(TUICallKit_Swift)
     private func makeCallsTab() -> UIViewController {
         let callsPage = RecentCallsViewController(recordCallsUIStyle: .minimalist)
         callsPage.tabBarItem = UITabBarItem(
@@ -158,16 +167,19 @@ final class HomeTabBarController: UITabBarController {
         )
         return callsPage
     }
+#endif
 
     private func makeChatsTab() -> UIViewController {
         let coordinator = ChatFlowCoordinator()
         weak var weakNav: HiddenBarNavigationController?
         let conversationsPage = ConversationsPage(onConversationClick: { [weak coordinator] info in
+#if canImport(TencentCloudAIDeskCustomer)
             if info.conversation.conversationID == CustomerServiceManager.customerServiceConversationID,
                let viewController = weakNav?.topViewController {
                 CustomerServiceManager.openCustomerServiceChat(from: viewController)
                 return
             }
+#endif
             coordinator?.pushChat(info.conversation, locateMessage: info.locateMessage)
         })
         let nav = HiddenBarNavigationController(rootViewController: conversationsPage)

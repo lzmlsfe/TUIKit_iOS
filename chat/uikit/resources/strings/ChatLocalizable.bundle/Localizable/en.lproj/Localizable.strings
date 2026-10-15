@@ -849,7 +849,6 @@
 "QuickReplyProcessing" = "Processing";
 "AudioRecordTimeLimitReached" = "The voice recording time limit has been reached";
 "AudioRecorderLessThanMinTime" = "The voice recording is too short";
-"AudioAuthorizationPrompter" = "The current configuration cannot enable AI noise reduction. Only the Debug version has this prompt";
 "ChooseMediaType" = "Choose Media Type";
 "SendMessage" = "Send a message or hold to talk...";
 "SendMessageTextOnly" = "Send a message...";

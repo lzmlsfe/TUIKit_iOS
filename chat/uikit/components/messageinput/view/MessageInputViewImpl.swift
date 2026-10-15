@@ -1,3 +1,4 @@
+import Foundation
 import UIKit
 import SnapKit
 import AtomicXCore
@@ -197,7 +198,6 @@ final class MessageInputViewImpl: UIView {
         activateConstraints()
         bindInteraction()
         setupViewStyle()
-        fetchVideoRecorderSignature()
     }
 
     required init?(coder: NSCoder) {

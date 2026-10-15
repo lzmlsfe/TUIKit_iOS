@@ -2,3 +2,7 @@
 application/Pods
 application/App-UIKit.xcworkspace/xcuserdata
 *.sh
+.build/
+.swiftpm/
+Package.resolved
+chat/demo/build_spm/

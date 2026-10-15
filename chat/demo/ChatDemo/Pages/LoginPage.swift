@@ -2,7 +2,9 @@ import AtomicXCore
 import TUIChatKit
 import RTCRoomEngine
 import SnapKit
+#if canImport(TUICallKit_Swift)
 import TUICallKit_Swift
+#endif
 import UIKit
 
 final class DemoLoginManager {
@@ -16,8 +18,12 @@ final class DemoLoginManager {
                 switch result {
                 case .success:
                     self?.currentUserID = userID
+#if canImport(TUICallKit_Swift)
                     self?.initCallEngine(sdkAppID: sdkAppID, userID: userID, userSig: userSig)
+#endif
+#if canImport(TencentCloudAIDeskCustomer)
                     CustomerServiceManager.initAndStart(sdkAppID: sdkAppID, userID: userID, userSig: userSig)
+#endif
                     completion(true, nil)
                 case .failure(let error):
                     completion(false, "\(LocalizedChatString("LoginFailed")): \(error.code), \(error.message)")
@@ -26,6 +32,7 @@ final class DemoLoginManager {
         }
     }
 
+#if canImport(TUICallKit_Swift)
     private func initCallEngine(sdkAppID: Int32, userID: String, userSig: String) {
         TUICallEngine.createInstance().`init`(sdkAppID, userId: userID, userSig: userSig) {
             TUICallEngine.createInstance().enableMultiDeviceAbility(enable: true) {
@@ -37,6 +44,7 @@ final class DemoLoginManager {
             print("[Login] initCallEngine failed: \(code), \(message ?? "")")
         }
     }
+#endif
 
     func logout(completion: @escaping (Bool) -> Void) {
         UserDefaults.standard.set("", forKey: LoginPersist.loginUser)

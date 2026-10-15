@@ -849,7 +849,6 @@
 "QuickReplyProcessing" = "جاري المعالجة";
 "AudioRecordTimeLimitReached" = "تم الوصول إلى الحد الأقصى لمدة التسجيل الصوتي";
 "AudioRecorderLessThanMinTime" = "مدة التسجيل الصوتي قصيرة جدًا";
-"AudioAuthorizationPrompter" = "التكوين الحالي لا يمكن تمكين منظمة العفو الدولية للحد من الضوضاء . تصحيح الإصدارات ف";
 "ChooseMediaType" = "اختر نوع الوسائط";
 "SendMessage" = "رسالة أو اضغط...";
 "SendMessageTextOnly" = "أرسل رسالة...";

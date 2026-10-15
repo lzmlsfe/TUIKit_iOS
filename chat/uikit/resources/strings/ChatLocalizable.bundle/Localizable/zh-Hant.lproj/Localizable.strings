@@ -849,7 +849,6 @@
 "QuickReplyProcessing" = "正在處理中";
 "AudioRecordTimeLimitReached" = "語音錄製時間已達上限";
 "AudioRecorderLessThanMinTime" = "語音錄製時間太短";
-"AudioAuthorizationPrompter" = "當前配寘不能開啟AI降噪. 僅Debug版本有該提示";
 "ChooseMediaType" = "選擇媒體類型";
 "SendMessage" = "發消息或按住說話...";
 "SendMessageTextOnly" = "發消息...";

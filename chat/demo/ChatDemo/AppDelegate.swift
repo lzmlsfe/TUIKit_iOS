@@ -1,7 +1,9 @@
 import AtomicXCore
 import TUIChatKit
 import Combine
+#if canImport(TUICallKit_Swift)
 import TUICallKit_Swift
+#endif
 import UIKit
 
 @main
@@ -15,7 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         setupAppConfiguration()
         CustomLinkMessageManager.register()
+#if canImport(TencentCloudAIDeskCustomer)
         CustomerServiceManager.registerSummary()
+#endif
         ChatCallEventSubscriber.shared.ensureSubscribed()
         setupLoginObserver()
 
@@ -100,6 +104,7 @@ public final class ChatCallEventSubscriber: NSObject {
     public func ensureSubscribed() {
         guard !isSubscribed else { return }
         isSubscribed = true
+#if canImport(TUICallKit_Swift)
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(handleStartCallEvent(_:)),
                                                name: Self.startCallEventName,
@@ -108,8 +113,10 @@ public final class ChatCallEventSubscriber: NSObject {
                                                selector: #selector(handleStartJoinEvent(_:)),
                                                name: Self.startJoinEventName,
                                                object: nil)
+#endif
     }
 
+#if canImport(TUICallKit_Swift)
     @objc private func handleStartCallEvent(_ notification: Notification) {
         guard let userInfo = notification.userInfo,
               let participantIDs = userInfo[Self.keyParticipantIDs] as? [String],
@@ -128,4 +135,5 @@ public final class ChatCallEventSubscriber: NSObject {
         guard let callID = notification.userInfo?[Self.keyCallID] as? String, !callID.isEmpty else { return }
         TUICallKit.createInstance().join(callId: callID, completion: nil)
     }
+#endif
 }

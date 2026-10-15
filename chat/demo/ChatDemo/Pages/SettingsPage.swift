@@ -1,7 +1,9 @@
 import AtomicXCore
 import TUIChatKit
 import Combine
+#if canImport(ImSDK_Plus)
 import ImSDK_Plus
+#endif
 import SnapKit
 import UIKit
 
@@ -115,8 +117,10 @@ final class SettingsViewController: UIViewController {
         groupTwo.addArrangedSubview(makeRowDivider())
         groupTwo.addArrangedSubview(makeReadReceiptRow())
         groupTwo.addArrangedSubview(makeRowDivider())
+#if canImport(TUICallKit_Swift)
         groupTwo.addArrangedSubview(makeCallsTabRow())
         groupTwo.addArrangedSubview(makeRowDivider())
+#endif
         groupTwo.addArrangedSubview(makeEntryRow(title: LocalizedChatString("TranslateMessage"), valueLabel: translateValueLabel, action: #selector(handleTranslateTapped)))
         groupTwo.addArrangedSubview(makeRowDivider())
         groupTwo.addArrangedSubview(makeEntryRow(title: LocalizedChatString("VoiceMessageSettings"), valueLabel: nil, action: #selector(handleVoiceTapped)))
@@ -350,6 +354,7 @@ final class SettingsViewController: UIViewController {
         return container
     }
 
+#if canImport(TUICallKit_Swift)
     private func makeCallsTabRow() -> UIView {
         let colors = TUIChatKitTheme.colors
         let container = UIView()
@@ -374,6 +379,7 @@ final class SettingsViewController: UIViewController {
         }
         return container
     }
+#endif
 
     private func makeGroupSpacer() -> UIView {
         let spacer = UIView()

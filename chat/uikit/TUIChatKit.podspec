@@ -15,7 +15,6 @@ Pod::Spec.new do |s|
 
     s.dependency 'Kingfisher'
     s.dependency 'AtomicXCore'
-    s.dependency 'Masonry'
     s.dependency 'SnapKit'
     s.dependency 'AlbumPicker'
 

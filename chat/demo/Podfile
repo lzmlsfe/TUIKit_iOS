@@ -3,9 +3,9 @@ platform :ios, '15.0'
 target 'ChatDemo' do
   use_frameworks! :linkage => :static
   
-  pod 'TUIChatKit', :path => '../uikit/TUIChatKit.podspec'
-  pod 'TUICallKit_Swift', :path => '../../call/TUICallKit_Swift.podspec'
-  pod 'TencentCloudAIDeskCustomer'
+  #pod 'TUIChatKit', :path => '../uikit/TUIChatKit.podspec'
+  #pod 'TUICallKit_Swift', :path => '../../call/TUICallKit_Swift.podspec'
+  #pod 'TencentCloudAIDeskCustomer'
 end
 
 #Pods config
