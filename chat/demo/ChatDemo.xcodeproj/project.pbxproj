@@ -20,7 +20,6 @@
 		A32424F12E6EC0050075F614 /* appConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = A32424DD2E6EC0050075F614 /* appConfig.json */; };
 		A32424F32E6EC0050075F614 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A32424DF2E6EC0050075F614 /* Assets.xcassets */; };
 		A32424F52E6EC0050075F614 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32424F42E6EC0050075F614 /* RootViewController.swift */; };
-		AA0000000000000000000003 /* TUIChatKit in Frameworks */ = {isa = PBXBuildFile; productRef = AA0000000000000000000002 /* TUIChatKit */; };
 		AB00000000000000000000AC /* LoginSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB00000000000000000000AD /* LoginSubviews.swift */; };
 		AB00000000000000000000AE /* telephone_area_code.json in Resources */ = {isa = PBXBuildFile; fileRef = AB00000000000000000000AF /* telephone_area_code.json */; };
 		AB00000000000000000000B1 /* verification.html in Resources */ = {isa = PBXBuildFile; fileRef = AB00000000000000000000B2 /* verification.html */; };
@@ -86,7 +85,6 @@
 			files = (
 				161326BF2F693A6F00EBFF2E /* CoreTelephony.framework in Frameworks */,
 				4AE6172335A14D917199DD62 /* Pods_ChatDemo.framework in Frameworks */,
-				AA0000000000000000000003 /* TUIChatKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,9 +211,6 @@
 				en,
 			);
 			mainGroup = 06152C22A88379FD87B6CFAF;
-			packageReferences = (
-				AA0000000000000000000001 /* XCLocalSwiftPackageReference ".." */,
-			);
 			productRefGroup = 93794F2383C516BE71859D82 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -493,20 +488,6 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCLocalSwiftPackageReference section */
-		AA0000000000000000000001 /* XCLocalSwiftPackageReference ".." */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../../;
-		};
-/* End XCLocalSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		AA0000000000000000000002 /* TUIChatKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = AA0000000000000000000001 /* XCLocalSwiftPackageReference ".." */;
-			productName = TUIChatKit;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E6F3900DD7B5D309DE65B878 /* Project object */;
 }

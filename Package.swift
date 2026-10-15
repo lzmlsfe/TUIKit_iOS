@@ -10,8 +10,10 @@ let package = Package(
         .library(name: "AlbumPicker", targets: ["AlbumPicker"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/Tencent-RTC/AtomicXCore_SwiftPM.git", from: "4.3.0"),
-        .package(url: "https://github.com/Tencent-RTC/Chat_SDK_SwiftPM.git", from: "9.0.7652"),
+        // 4.3.0 <= v < 5.0.0
+        .package(url: "https://github.com/Tencent-RTC/AtomicXCore_SwiftPM.git", .upToNextMajor(from: "4.3.0")),
+        // 9.x 内最新版本：9.0.7652 <= v < 10.0.0
+        .package(url: "https://github.com/Tencent-RTC/Chat_SDK_SwiftPM.git", .upToNextMajor(from: "9.0.7652")),
         // Kingfisher 8.12+ 要求 swift-tools-version 6.2；Xcode 16 / Swift 6.0 只能用 8.11.x
         .package(url: "https://github.com/onevcat/Kingfisher.git", .upToNextMinor(from: "8.11.0")),
         .package(url: "https://github.com/SnapKit/SnapKit.git", from: "5.7.1"),
